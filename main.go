@@ -1,10 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"housy/database"
 	"housy/pkg/mysql"
 	"housy/routes"
-	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -16,7 +16,7 @@ func main() {
 
 	// run migration
 	database.RunMigration()
-	
+
 	r := mux.NewRouter()
 
 	routes.RouteInit(r.PathPrefix("/api/v1").Subrouter())
